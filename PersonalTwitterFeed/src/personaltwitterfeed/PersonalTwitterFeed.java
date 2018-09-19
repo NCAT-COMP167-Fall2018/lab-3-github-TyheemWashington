@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class PersonalTwitterFeed {
 
-    private static int MAX_NUMBER_TWEETS = 200;
+    private static int MAX_NUMBER_TWEETS = 4;
     
     /**
      * @param args the command line arguments
@@ -32,14 +32,15 @@ public class PersonalTwitterFeed {
         System.out.println("Enter your tweets and I will add them to your timeline!");
         
         int numTweets = 0;
-        
+        String [] timeDay = new String[MAX_NUMBER_TWEETS];
         while(numTweets < (MAX_NUMBER_TWEETS - 1)) {
             tweets[numTweets] = keyboard.nextLine();
+            timeDay[numTweets]=getCurrentTimeStamp(tweets);  
             numTweets++;
             
             System.out.println(tweeterName + "'s Personal Twitter Feed:");
             for(int i = 0; i < numTweets; i++) {
-                System.out.println("- " + tweets[i]+getCurrentTimeStamp());
+                System.out.println("- " + tweets[i]+""+timeDay[i]);
             }
             
             System.out.println();
@@ -53,9 +54,9 @@ public class PersonalTwitterFeed {
         
         System.out.println("Your twitter feed is full");
     }
- public static String getCurrentTimeStamp(){
+ public static String getCurrentTimeStamp(String[] tweets){
    Date now =new Date();
-     String Time = "yyyy-MM-dd";
+     String Time = "yyyy-MM-dd hh:mm:ss.SSSZ";
    SimpleDateFormat DateFormat = new SimpleDateFormat(Time);
    String Date = DateFormat.format(new Date());
         return Date;
