@@ -22,7 +22,20 @@ public class PersonalTwitterFeed {
      */
     public static void main(String[] args) {
         String[] tweets = new String[MAX_NUMBER_TWEETS];
-        Scanner keyboard = new Scanner(System.in);
+       newTweet(tweets);
+        getCurrentTimeStamp(tweets);
+        
+
+    }
+ public static String getCurrentTimeStamp(String[] tweets){
+   Date now =new Date();
+     String Time = "yyyy-MM-dd hh:mm:ss.SSSZ";
+   SimpleDateFormat DateFormat = new SimpleDateFormat(Time);
+   String Date = DateFormat.format(new Date());
+        return Date;
+ }    
+ public static void newTweet (String [] tweets){
+             Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to your personal Twitter!");
         System.out.println("What's your name, tweeter?");
         
@@ -53,12 +66,7 @@ public class PersonalTwitterFeed {
         }
         
         System.out.println("Your twitter feed is full");
-    }
- public static String getCurrentTimeStamp(String[] tweets){
-   Date now =new Date();
-     String Time = "yyyy-MM-dd hh:mm:ss.SSSZ";
-   SimpleDateFormat DateFormat = new SimpleDateFormat(Time);
-   String Date = DateFormat.format(new Date());
-        return Date;
- }    
+ }
 }
+
+
